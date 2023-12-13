@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title name  -->
+    <title>M D K | C A L C</title>
+
+    <!-- Title logo link -->
+    <link rel="shortcut icon" sizes="32x32" href="./Calc_Title.png" />
+
+    <!-- font awesome style sheet link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <h2>Calculator</h2>
+
+        <input id="result" disabled />
+
+        <div class="calc-content">
+            <button id="clear">AC</button>
+            <button>DE</button>
+            <button>/</button>
+            <button>x</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>-</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>+</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>.</button>
+        </div>
+        <div class="calc-content-1">
+            <button>00</button>
+            <button>0</button>
+            <button id="equal">=</button>
+        </div>
+    </div>
+
+</body>
+
+<style>
+    /*----------------------------------------------------------------------
+                            OVERALL STYLE STARTS HERE                         
+     ----------------------------------------------------------------------*/
+
+    :root {
+        --white: #fff;
+        --red: #d80b0b;
+        --brown: #414141;
+        --light-brown: #b2a9a9;
+        --border: .1rem solid var(--brown);
+        --invisible-border: .1rem solid transparent;
+        --light-border: .2rem solid var(--white);
+        --bold-border: .2rem solid var(--brown);
+        --box-shadow: 0px 2px 20px 2px var(--white);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-decoration: none;
+    }
+
+    *::-webkit-scrollbar {
+        width: .4rem;
+        height: 1rem;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: var(--brown);
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    body {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        min-width: 100%;
+        background: var(--brown);
+        overflow: hidden;
+        scroll-behavior: smooth;
+        scroll-padding-top: 6rem;
+    }
+
+    .calculator {
+        background: var(--light-brown);
+        transition: .3s;
+        box-shadow: var(--box-shadow);
+        max-width: 23rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem;
+        border: var(--light-border);
+        border-radius: .5rem;
+    }
+
+    .calculator h2 {
+        color: var(--brown);
+        font-size: 2.2rem;
+        letter-spacing: .2rem;
+    }
+
+    .calculator #result {
+        height: 3rem;
+        width: 19rem;
+        margin: 0 auto;
+        margin-top: 1rem;
+        border-radius: .5rem;
+        border: var(--border);
+        color: var(--brown);
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-align: right;
+        padding-right: .5rem;
+        background: var(--white);
+        box-shadow: var(--box-shadow);
+        overflow-x: scroll;
+    }
+
+    .calc-content {
+        width: 300px;
+        margin: 0 auto;
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    button {
+        width: 58px;
+        height: 55px;
+        margin: 5px;
+        font-size: 22px;
+        font-weight: bold;
+        border-radius: 6px;
+        border: var(--border);
+        background: var(--brown);
+        color: var(--white);
+        box-shadow: var(--box-shadow);
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    button:hover {
+        transition: 0.5s;
+        background: var(--white);
+        color: var(--brown);
+    }
+
+    button#clear {
+        background: var(--red);
+        border: var(--invisible-border);
+        transition: .2s;
+        color: var(--white);
+    }
+
+    button#clear:hover {
+        transition: 0.5s;
+        color: var(--brown);
+        background: var(--white);
+        border: var(--border);
+    }
+
+    button#equal {
+        width: 8.8rem;
+        height: 55px;
+        margin: 5px;
+        font-size: 22px;
+        color: var(--brown);
+        background: var(--white);
+        border: var(--bold-border);
+        transition: all .2s;
+    }
+
+    button#equal:hover {
+        transform: scale(1.05);
+        background: var(--brown);
+        color: var(--white);
+    }
+
+    @media (max-width:450px) {
+        body {
+            min-height: 90vh;
+        }
+
+        .calculator {
+            width: 20rem;
+            padding: 1rem;
+        }
+
+        .calculator #result {
+            width: 17rem;
+            font-size: 1.1rem;
+        }
+
+        .calc-content-1,
+        .calc-content {
+            gap: .1rem;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            margin: .2rem;
+        }
+
+        .calc-content-1 button:nth-child(2) {
+            margin-left: 1rem;
+        }
+
+        button#equal {
+            border: var(--border);
+            height: 50px;
+            font-size: 1.2rem;
+            width: 7.7rem;
+            margin-left: 1rem;
+        }
+
+    }
+</style>
+
+<script>
+
+    var result = document.getElementById('result');
+    let btn = document.querySelectorAll("button");
+
+    let string = "";
+
+    btn.forEach((btn) =>
+        btn.addEventListener("click", (e) => {
+            if (e.target.innerHTML == 'DE') {
+                string = string.slice(0,-1);
+                result.value = string;
+            }
+            else if (e.target.innerHTML == '=') {
+                string = eval(string);
+                result.value = string;
+            }
+            else if (e.target.innerHTML == 'AC') {
+                string = "";
+                result.value = string;
+            }
+            else {
+                e.target.innerHTML = (e.target.innerHTML == 'x') ? '*' : e.target.innerHTML;
+
+                string += e.target.innerHTML;
+                result.value = string;
+            }
+        })
+    );
+
+    /*--------- ctrl button lock Starts ---------- */
+    document.onkeydown = function (e) {
+        if (e.ctrlKey) {
+            return false;
+        }
+    };
+
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+</script>
+
+</html>
